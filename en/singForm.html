@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Single Player | HangMan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<!--W3.CSS-->
+<link rel="stylesheet" href="css/w3.css">
+<!--Google Icons-->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
+</head>
+
+<body>
+    <nav>
+        <ul class="w3-navbar w3-black w3-xlarge w3-top">
+            <li id="siteName"><a class="w3-black" href="index.html">HangMan</a></li>
+            <li class="w3-hide-medium w3-hide-large w3-black w3-opennav w3-right">
+                <a class="w3-hover-deep-orange" href="javascript:void(0);" onclick="menu()">&#9776;</a>
+            </li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('help')"><i class="material-icons">help</i></a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('set')"><i class="material-icons">settings</i></a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange" href="log.html">Sign Up</a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange" href="ranking.html">Ranking</a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-deep-orange" href="play.html">Play</a></li>
+        </ul>
+        <div id="hidenMenu" class="w3-hide w3-hide-large w3-hide-medium w3-animate-top">
+            <ul class="w3-navbar w3-left-align w3-large w3-black">
+                <li class="w3-right"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('help')"><i class="material-icons">help</i></a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('set')"><i class="material-icons">settings</i></a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange" href="log.html">Sign Up</a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange" href="ranking.html">Ranking</a></li>
+                <li class="w3-right"><a class="w3-deep-orange" href="play.html">Play</a></li>
+            </ul>
+        </div>
+    </nav>
+    <article class="JFContainer">
+        <header class="w3-container w3-deep-orange" id="formHeader">
+            <h2>If you are already registered, you can proceed.</h2>
+            <p>Otherwise you must register in: <a href="log.html">Sign Up</a>
+        </header>
+            <form class="w3-container" name="SignUpForm" action="sing.html" onsubmit="return validateForm()">
+                <div  class="w3-row-padding">
+                    <p>
+                    <label class="formLabel" for="user">Username <span class="red">*</span></label></p>
+                    <select class="w3-select w3-border" name="usename" id="user">
+                        <!--js options-->
+                    </select>
+                </div>
+                <div  class="w3-row-padding">
+                    <p>
+                    <label class="formLabel">Theme <span class="red">*</span></label></p>
+                </div>
+                <div  class="w3-row-padding">
+                    <div class="w3-quarter">
+                        <p>
+                        <input class="w3-radio" type="radio" name="cats" value="0" id='ani'>
+                        <label for="ani">Animals</label></p>
+                        <p>
+                        <input class="w3-radio" type="radio" name="cats" value="1" id="com">
+                        <label for="com">Food</label></p>
+                    </div>
+                    <div class="w3-quarter">
+                        <p>
+                        <input class="w3-radio" type="radio" name="cats" value="2" id="plan">
+                        <label for="plan">Plants</label></p>
+                        <p>
+                        <input class="w3-radio" type="radio" name="cats" value="3" id="teli">
+                        <label for="teli">Television</label></p>
+                    </div>
+                    <div class="w3-quarter">
+                        <p>
+                        <input class="w3-radio" type="radio" name="cats" value="4" id="liv">
+                        <label for="liv">Books</label></p>
+                        <p>
+                        <input class="w3-radio" type="radio" name="cats" value="5" id="cid">
+                        <label for="cid">Cities</label></p>
+                    </div>
+                    <div class="w3-quarter">
+                        <p>
+                        <input class="w3-radio" type="radio" name="cats" value="6" id="cor">
+                        <label for="cor">Colors</label></p>
+                        <p>
+                        <input class="w3-radio" type="radio" name="cats" value="7" id="desp">
+                        <label for="desp">Sports</label></p>
+                    </div>
+                </div>
+                <div  class="w3-row-padding">
+                    <div class="w3-quarter">
+                        <input class="w3-radio" type="radio" name="cats" value="Al" id="al" checked>
+                        <label for="al">Random **</label>
+                    </div>
+                </div>
+                <p>** This field can only be selected if you marked any subject on the application form.</p>
+                <div  class="w3-row-padding">
+                    <p>
+                    <label class="formLabel">Mode <span class="red">*</span></label></p>
+                    <select class="w3-select w3-border" name="mode">
+                        <option value="df" checked>Defined in the profile</option>
+                        <option value="facil">Easy</option>
+                        <option value="medio">Medium</option>
+                        <option value="dificil">Hard</option>
+                    </select>
+                </div>
+                <div  class="w3-row-padding">
+                    <input class="w3-btn w3-deep-orange w3-right BTN" id="submit" value="Play" type="submit">
+                </div>
+            </form>
+    </article>
+    <footer>2016, All Rights Reserved | <a class="w3-text-deep-orange w3-hover-text-orange" href="credit.html">Credits</a></footer>
+    <div id='error' class="w3-container w3-red w3-animate-top w3-card-24">
+        <span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span>
+        <h3 id="errorH3"></h3>
+        <p id="errorP"></p>
+    </div>
+    <!--Modals Here-->
+    <div id="help" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <header class="w3-container w3-deep-orange">
+                <span class="w3-closebtn"><a onclick="closeModal('help');">&times;</a></span>
+                <h2>Help</h2>
+                <p>In this section you will find a tutorial video for HangMan, as well as its rules.</p>
+            </header>
+            <div class="w3-container">
+                <div class="video">
+                    <iframe id ="videoHelp" src="https://www.youtube.com/embed/oPZJB4EOh18" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <section>
+                    <h3>Single-Player</h3>
+                    <p>In Single-Player mode, the objective of the game is to guess a certain word, letter by letter ,in a space of time. For every wrong letter you lose one "life", and after a limited number of lives lost, the game ends. The greater the difficulty chosen, the lower the playing time.</p>
+                </section>
+                <section>
+                    <h3>Multi-Player</h3>
+                    <p>In Multi-Player mode, two players choose one word each for the opponent to guess. After the choice, both players play side by side at the same time, with the same rules of the Single-Player mode.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div id="set" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <header class="w3-container w3-deep-orange">
+                <span class="w3-closebtn"><a onclick="closeModal('set');">&times;</a></span>
+                <h2>Settings</h2>
+            </header>
+            <div class="w3-container">
+                <h4>Music</h4>
+                <audio id="audioSet" loop controls>
+                    <source type="audio/mpeg" src="media/Crypto.mp3"/>
+                    <source type="audio/ogg" src="media/Crypto.ogg"/>
+                    <source type="audio/wav" src="media/Crypto.wav"/>
+                    <p>Your browser does not support the audio element.</p>
+                </audio>
+                <section>
+                    <h4>Languages</h4>
+                    <p id="languages">
+                        <a href="../index.html" class="w3-btn"><img src="images/pt.jpg"></a>
+                        <a class="w3-disabled w3-btn"><img src="images/en.png"></a>
+                        <a href="../es/index.html" class="w3-btn"><img src="images/esp.png"></a>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/singFORM.js"></script>
+</body>
+</html>

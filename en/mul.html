@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Multi Player | HangMan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--W3.CSS-->
+<link rel="stylesheet" href="css/w3.css">
+<!--Google Icons-->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="js/boneco.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
+<script type="text/javascript" src="js/DB.js"></script>
+<script type="text/javascript" src="js/tecladoM.js"></script>
+</head>
+
+<body>
+	<nav>
+        <ul class="w3-navbar w3-black w3-xlarge w3-top">
+            <li id="siteName"><a class="w3-black" href="index.html">HangMan</a></li>
+            <li class="w3-hide-medium w3-hide-large w3-black w3-opennav w3-right">
+                <a class="w3-hover-deep-orange" href="javascript:void(0);" onclick="menu()">&#9776;</a>
+            </li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('help')"><i class="material-icons">help</i></a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('set')"><i class="material-icons">settings</i></a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange" href="log.html">Sign Up</a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange" href="ranking.html">Ranking</a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-deep-orange" href="play.html">Play</a></li>
+        </ul>
+        <div id="hidenMenu" class="w3-hide w3-hide-large w3-hide-medium w3-animate-top">
+            <ul class="w3-navbar w3-left-align w3-large w3-black">
+                <li class="w3-right"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('help')"><i class="material-icons">help</i></a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('set')"><i class="material-icons">settings</i></a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange" href="log.html">Sign Up</a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange" href="ranking.html">Ranking</a></li>
+                <li class="w3-right"><a class="w3-deep-orange" href="play.html">Play</a></li>
+            </ul>
+        </div>
+    </nav>
+		<section id="MultiP">
+			<div class="w3-row">
+				<div class="w3-container w3-half forca">
+					  <img src="images/forca.png" alt="Imagem de uma Forca" title="Forca">
+	          <div id="bonecoREL1"><img src="images/body_All.png" alt="Imagem de um boneco" class="bonecoRELiMG"></div>
+						<p class="w3-half w3-container timeM" id="timeM1"><i class="material-icons">watch_later</i> <span id="time1">00:00</span></p>
+				</div>
+				<div class="w3-container w3-half forca" id="forcaR">
+					 	<img class="inverHoM" src="images/forca.png" alt="Imagem de uma Forca" title="Forca" >
+	        	<div id="bonecoREL2" class="inverHoM" ><img src="images/body_All.png" alt="Imagem de um boneco" class="bonecoRELiMG"></div>
+						<p class="w3-half w3-container timeM" id="timeM2"><i class="material-icons">watch_later</i> <span id="time2">00:00</span></p>
+				</div>
+			</div>
+			<div class="w3-row" id="mulData">
+				<div class="w3-container w3-half TextCenter">
+					<div class="w3-row">
+						<h3 class="w3-container w3-half"><span class="Jog1"></span> | <i class="material-icons">equalizer</i> <span id="points1">0</span></h3>
+						<h3 class="w3-container w3-half">Categoria: <span id="categoria1"></span></h3>
+					</div>
+					<h4 id="wordSpaces1"></h4>
+					<div id="buttonsGame1">
+	                </div>
+				</div>
+				<div class="w3-container w3-half TextCenter">
+					<div class="w3-row">
+						<h3 class="w3-container w3-half"><span class="Jog2"></span> | <i class="material-icons">equalizer</i> <span id="points2">0</span></h3>
+						<h3 class="w3-container w3-half">Categoria: <span id="categoria2"></span></h3>
+					</div>
+					<h4 id="wordSpaces2"></h4>
+					<div id="buttonsGame2">
+	                </div>
+				</div>
+			</div>
+		</section>
+		<section id="MultiPMob">
+			<div id="choose">
+				<div class="w3-container">
+					<a class="w3-btn" href="singForm.html">1<br>Jogador</a>
+				</div>
+			</div>
+			<h3>Esta versão do jogo não pode ser jogada em dispositivos moveis!</h3>
+		</section>
+	<footer>2016, All Rights Reserved | <a class="w3-text-deep-orange w3-hover-text-orange" href="credit.html">Credits</a></footer>
+	<!--Fim de Jogo-->
+    <div id="endGame" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+            <header class="w3-container w3-deep-orange w3-row">
+							<div class="w3-half">
+                <h2 id="endGameTilte1"></h2>
+                <h3 id="endGameSubTilte1"><span class="Jog1"></span></h3>
+							</div>
+							<div class="w3-half">
+                <h2 id="endGameTilte2"></h2>
+                <h3 id="endGameSubTilte2"><span class="Jog2"></span></h3>
+							</div>
+            </header>
+            <div class="w3-container" id="gameResult">
+				<div id="user1" class="w3-half">
+					<div class="w3-row">
+						<h4>Word: <span id="resPal1"></span></h4>
+					</div>
+          <div class="w3-row">
+						<h4 class="w3-half">Category: <span id="resCat1"></span></h4>
+							<h4 class="w3-half">Time: <span id="resTempo1"></span> <span>min</span></h4>
+					</div>
+					<div class="w3-row">
+						<h4 class="w3-half">Failed Attempts: <span id="resTentFalha1"></span></h4>
+						<h4 class="w3-half">Points: <span id="resPontos1"></span></h4>
+					</div>
+				</div>
+				<div id="user2" class="w3-half">
+					<div class="w3-row">
+						<h4>Word: <span id="resPal2"></span></h4>
+					</div>
+        	<div class="w3-row">
+						<h4 class="w3-half">Category: <span id="resCat2"></span></h4>
+						<h4 class="w3-half">Time: <span id="resTempo2"></span> <span>min</span></h4>
+					</div>
+					<div class="w3-row">
+						<h4 class="w3-half">Failed Attempts: <span id="resTentFalha2"></span></h4>
+						<h4 class="w3-half">Points: <span id="resPontos2"></span></h4>
+					</div>
+				</div>
+					<h3 class="w3-half"><a class="w3-btn w3-deep-orange w3-hover-orange" href="play.html">Play again?</a></h3>
+					<h3 class="w3-half"><a class="w3-btn w3-deep-orange w3-hover-orange" href="ranking.html">Ranking</a></h3>
+            </div>
+        </div>
+    </div>
+    <!--Modals Here-->
+    <div id="help" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <header class="w3-container w3-deep-orange">
+                <span class="w3-closebtn"><a onclick="closeModal('help');">&times;</a></span>
+                <h2>Help</h2>
+                <p>In this section you will find a tutorial video for HangMan, as well as its rules.</p>
+            </header>
+            <div class="w3-container">
+                <div class="video">
+                    <iframe id ="videoHelp" src="https://www.youtube.com/embed/oPZJB4EOh18" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <section>
+                    <h3>Single-Player</h3>
+                    <p>In Single-Player mode, the objective of the game is to guess a certain word, letter by letter ,in a space of time. For every wrong letter you lose one "life", and after a limited number of lives lost, the game ends. The greater the difficulty chosen, the lower the playing time.</p>
+                </section>
+                <section>
+                    <h3>Multi-Player</h3>
+                    <p>In Multi-Player mode, two players choose one word each for the opponent to guess. After the choice, both players play side by side at the same time, with the same rules of the Single-Player mode.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div id="set" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <header class="w3-container w3-deep-orange">
+                <span class="w3-closebtn"><a onclick="closeModal('set');">&times;</a></span>
+                <h2>Settings</h2>
+            </header>
+            <div class="w3-container">
+                <h4>Music</h4>
+                <audio id="audioSet" loop controls autoplay>
+                    <source type="audio/mpeg" src="media/Crypto.mp3"/>
+                    <source type="audio/ogg" src="media/Crypto.ogg"/>
+                    <source type="audio/wav" src="media/Crypto.wav"/>
+                    <p>Your browser does not support the audio element.</p>
+                </audio>
+                <section>
+                    <h4>Languages</h4>
+                    <p id="languages">
+                        <a href="../index.html" class="w3-btn"><img src="images/pt.jpg"></a>
+                        <a class="w3-disabled w3-btn"><img src="images/en.png"></a>
+                        <a href="../es/index.html" class="w3-btn"><img src="images/esp.png"></a>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/mul.js"></script>
+</body>
+</html>

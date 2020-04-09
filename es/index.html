@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home | El Ahorcado</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--W3.CSS-->
+<link rel="stylesheet" href="css/w3.css">
+<!--Google Icons-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<link rel="icon" type="image/png" href="images/favicon.png">
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
+
+</head>
+
+<body>
+	<nav>
+        <ul class="w3-navbar w3-black w3-xlarge w3-top">
+            <li id="siteName"><a class="w3-black" href="index.html">El Ahorcado</a></li>
+            <li class="w3-hide-medium w3-hide-large w3-black w3-opennav w3-right">
+                <a class="w3-hover-deep-orange" href="javascript:void(0);" onclick="menu()">&#9776;</a>
+            </li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('help')"><i class="material-icons">help</i></a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('set')"><i class="material-icons">settings</i></a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange" href="log.html">Registrar</a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange" href="ranking.html">Clasificación</a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange" href="play.html">Jugar</a></li>
+        </ul>
+        <div id="hidenMenu" class="w3-hide w3-hide-large w3-hide-medium w3-animate-top">
+            <ul class="w3-navbar w3-left-align w3-large w3-black">
+                <li class="w3-right"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('help')"><i class="material-icons">help</i></a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('set')"><i class="material-icons">settings</i></a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange" href="log.html">Registrar</a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange" href="ranking.html">Clasificación</a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange" href="play.html">Jugar</a></li>
+            </ul>
+            </ul>
+        </div>
+    </nav>
+	<section>
+		<a class="Play w3-btn" href="play.html">Jugar! <i class="fa fa-play" aria-hidden="true"></i></a>
+	</section>
+	<footer>2016, Todos los Derechos Reservados | <a class="w3-text-deep-orange w3-hover-text-orange" href="credit.html">Créditos</a></footer>
+    <!--Modals Here-->
+    <div id="help" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <header class="w3-container w3-deep-orange">
+                <span class="w3-closebtn"><a onclick="closeModal('help');">&times;</a></span>
+                <h2>Ayuda</h2>
+                <p>En esta sección encontrará un tutorial d'El Ahorcado, así como sus reglas.</p>
+            </header>
+            <div class="w3-container">
+                <div class="video">
+                    <iframe id ="videoHelp" src="https://www.youtube.com/embed/oPZJB4EOh18" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <section>
+                    <h3>Un Solo Jugador</h3>
+                    <p>En el modo de un solo jugador, el objetivo del juego y tratar de adivinar una palabra, letra por letra, en un espacio de tiempo. Por cada letra equivocada se pierde una "vida", y después de un número limitado de vidas perdidas, el juego termina. Cuanto mayor es la dificultad elegido, menor es el tiempo de reproducción.</p>
+                </section>
+                <section>
+                    <h3>Multi-Jugador</h3>
+                    <p>En el modo multi-jugador, dos jugadores elegir una palabra cada uno para el oponente de adivinar. Después de la elección, ambos jugadores juegan al lado del otro, al mismo tiempo, con las mismas reglas del modo de un solo jugador.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div id="set" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <header class="w3-container w3-deep-orange">
+                <span class="w3-closebtn"><a onclick="closeModal('set');">&times;</a></span>
+                <h2>Ajustes</h2>
+            </header>
+            <div class="w3-container">
+                <h4>Música</h4>
+                <audio id="audioSet" loop controls>
+                    <source type="audio/mpeg" src="media/Crypto.mp3"/>
+                    <source type="audio/ogg" src="media/Crypto.ogg"/>
+                    <source type="audio/wav" src="media/Crypto.wav"/>
+                    <p>Su navegador no soporta el elemento de audio.</p>
+                </audio>
+                <section>
+                    <h4>Idiomas</h4>
+                    <p id="languages">
+                        <a href="../index.html" class="w3-btn"><img src="images/pt.jpg"></a>
+                        <a href="../en/index.html" class="w3-btn"><img src="images/en.png"></a>
+                        <a class="w3-disabled w3-btn"><img src="images/esp.png"></a>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

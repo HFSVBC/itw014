@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Inscrição | Jogo da Forca</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<!--W3.CSS-->
+<link rel="stylesheet" href="css/w3.css">
+<!--Google Icons-->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/signUP.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
+</head>
+
+<body>
+	<nav>
+        <ul class="w3-navbar w3-black w3-xlarge w3-top">
+            <li id="siteName"><a class="w3-black" href="index.html">Jogo da Forca</a></li>
+            <li class="w3-hide-medium w3-hide-large w3-black w3-opennav w3-right">
+                <a class="w3-hover-deep-orange" href="javascript:void(0);" onclick="menu()">&#9776;</a>
+            </li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('help')"><i class="material-icons">help</i></a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('set')"><i class="material-icons">settings</i></a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-deep-orange" href="log.html">Inscrição</a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange" href="ranking.html">Classificação</a></li>
+            <li class="w3-right w3-hide-small"><a class="w3-hover-deep-orange" href="play.html">Jogar</a></li>
+        </ul>
+        <div id="hidenMenu" class="w3-hide w3-hide-large w3-hide-medium w3-animate-top">
+            <ul class="w3-navbar w3-left-align w3-large w3-black">
+                <li class="w3-right"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('help')"><i class="material-icons">help</i></a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange w3-btn" onclick="openModal('set')"><i class="material-icons">settings</i></a></li>
+                <li class="w3-right"><a class="w3-deep-orange" href="log.html">Inscrição</a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange" href="ranking.html">Classificação</a></li>
+                <li class="w3-right"><a class="w3-hover-deep-orange" href="play.html">Jogar</a></li>
+            </ul>
+        </div>
+    </nav>
+	<article class="JFContainer">
+		<header class="w3-container w3-deep-orange" id="formHeader">
+			<h2>Para ter a melhor experiencia de jogo, por favor inscreva-se.</h2>
+		</header>
+			<form class="w3-container" name="SignUpForm" method="POST" onsubmit="return validateForm()">
+				<div  class="w3-row-padding">
+					<div class="w3-half nameLeft">
+						<label class="formLabel" for="FirstName">Nome *</label>
+						<input class="w3-input name-left" type="text" name="fName" id="FirstName" required>
+					</div>
+					<div class="w3-half nameRight">
+						<label class="formLabel" for="LastName">Apelido *</label>
+						<input class="w3-input" type="text" name="lName" id="LastName" required>
+					</div>
+				</div>
+				<div  class="w3-row-padding">
+					<label class="formLabel" for="user">Nome de Utilizador *</label>
+					<h7>(máximo de 6 caracteres)</h7>
+					<input class="w3-input" type="text" name="username" id="user" maxlength="6" required>
+				</div>
+				<div  class="w3-row-padding">
+					<label class="formLabel" for="mail">Email *</label>
+					<input class="w3-input" type="email" name="email" id="mail" required>
+				</div>
+				<div  class="w3-row-padding">
+					<p>
+					<label class="formLabel">Idade *</label></p>
+					<select class="w3-select w3-border" name="age" id="age">
+					    <option value="12"> &lt; 12</option>
+					    <option value="13_18">13 - 18</option>
+					    <option value="19_30">19 - 30</option>
+						<option value="30"> > 30</option>
+					</select>
+				</div>
+				<div  class="w3-row-padding">
+					<p>
+					<label class="formLabel">Língua</label></p>
+					<div class="w3-third">
+						<input class="w3-radio" type="radio" name="language" value="portugues" id="pt" checked>
+						<label for="pt">Português</label>
+					</div>
+					<div class="w3-third">
+						<input class="w3-radio" type="radio" name="language" value="espanhol" id="es">
+						<label for="es">Espanhol</label>
+					</div>
+					<div class="w3-third">
+						<input class="w3-radio" type="radio" name="language" value="english" id="en">
+						<label for="en">Inglês</label>
+					</div>
+				</div>
+				<div  class="w3-row-padding">
+					<p>
+					<label class="formLabel">Temas Preferidos</label></p>
+					<div class="w3-quarter">
+						<p>
+						<input class="w3-check" type="checkbox" name="cats" value="Animais" id='ani'>
+						<label for="ani">Animais</label></p>
+						<p>
+						<input class="w3-check" type="checkbox" name="cats" value="Comida" id="com">
+						<label for="com">Comida</label></p>
+					</div>
+					<div class="w3-quarter">
+						<p>
+						<input class="w3-check" type="checkbox" name="cats" value="Plantas" id="plan">
+						<label for="plan">Plantas</label></p>
+						<p>
+						<input class="w3-check" type="checkbox" name="cats" value="Televisao" id="teli">
+						<label for="teli">Televisão</label></p>
+					</div>
+					<div class="w3-quarter">
+						<p>
+						<input class="w3-check" type="checkbox" name="cats" value="Livros" id="liv">
+						<label for="liv">Livros</label></p>
+						<p>
+						<input class="w3-check" type="checkbox" name="cats" value="Cidades" id="cid">
+						<label for="cid">Cidades</label></p>
+					</div>
+					<div class="w3-quarter">
+						<p>
+						<input class="w3-check" type="checkbox" name="cats" value="Cores" id="cor">
+						<label for="cor">Cores</label></p>
+						<p>
+						<input class="w3-check" type="checkbox" name="cats" value="Desporto" id="desp">
+						<label for="desp">Desporto</label></p>
+					</div>
+				</div>
+				<div  class="w3-row-padding">
+					<p>
+					<label class="formLabel">Modo *</label></p>
+					<select class="w3-select w3-border" name="mode" id='mode'>
+					    <option value="facil">Fácil</option>
+					    <option value="medio">Médio</option>
+					    <option value="dificil">Difícil</option>
+					</select>
+				</div>
+				<div  class="w3-row-padding">
+					<input class="w3-btn w3-deep-orange w3-right BTN" id="submit" value="Enviar" type="submit">
+					<input class="w3-btn w3-orange w3-right BTN" type="reset" id="resetBTN">
+				</div>
+			</form>
+	</article>
+	<footer>2016, Todos os Direitos Reservados | <a class="w3-text-deep-orange w3-hover-text-orange" href="credit.html">Créditos</a></footer>
+	<div id='error' class="w3-container w3-red w3-animate-top w3-card-24">
+		<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span>
+		<h3 id="errorH3"></h3>
+		<p id="errorP"></p>
+	</div>
+	<div id='sucesso' class="w3-container w3-green w3-animate-top w3-card-24">
+		<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span>
+		<h3>Formulário submetido com sucesso!</h3>
+		<p id="errorP">Continuar para o <a href="play.html">jogo</a></p>
+	</div>
+	<!--Modals Here-->
+    <div id="help" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <header class="w3-container w3-deep-orange">
+                <span class="w3-closebtn"><a onclick="closeModal('help');">&times;</a></span>
+                <h2>Ajuda</h2>
+                <p>Nesta secçao irá encontrar um tutorial do Jogo da Forca, bem como as suas regras.</p>
+            </header>
+            <div class="w3-container">
+                <div class="video">
+                    <iframe id ="videoHelp" src="https://www.youtube.com/embed/oPZJB4EOh18" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <section>
+                    <h3>Um Jogador</h3>
+                    <p>No modo Um Jogador, o objetivo do jogo e tentar adivinhar uma determinada palavra, letra a letra, num espaço de tempo. Por cada letra errada perde-se uma "vida", e apos um numero limitado de vidas perdidas, o jogo acaba. Quanto maior for a dificuldade escolhida, menor sera o tempo de jogo.</p>
+                </section>
+                <section>
+                    <h3>Dois Jogadores</h3>
+                    <p>No modo Dois Jogadores, os dois jogadores ecolhem uma palavra cada um para o adversario tentar adivinhar. Apos a escolha, ambos os jogadores jogam lado a lado ao mesmo tempo, com as mesmas regras do modo Um Jogador.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div id="set" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top">
+            <header class="w3-container w3-deep-orange">
+                <span class="w3-closebtn"><a onclick="closeModal('set');">&times;</a></span>
+                <h2>Definições</h2>
+            </header>
+            <div class="w3-container">
+                <h4>Música</h4>
+                <audio id="audioSet" loop controls>
+                    <source type="audio/mpeg" src="media/Crypto.mp3"/>
+                    <source type="audio/ogg" src="media/Crypto.ogg"/>
+                    <source type="audio/wav" src="media/Crypto.wav"/>
+                    <p>O seu browser não suporta o elemento áudio.</p>
+                </audio>
+                <section>
+                    <h4>Línguas</h4>
+                    <p id="languages">
+                        <a class="w3-disabled w3-btn"><img src="images/pt.jpg"></a>
+                        <a href="en/index.html" class="w3-btn"><img src="images/en.png"></a>
+                        <a href="es/index.html" class="w3-btn"><img src="images/esp.png"></a>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
